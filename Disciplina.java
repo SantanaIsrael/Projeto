@@ -2,16 +2,24 @@ import base.Pessoa;
 
 abstract class Disciplina {
     protected String nomeDisciplina, codigoDisciplina;
-    protected Pessoa nomeProfessor;
-
-    //construtor
-    public Disciplina (String nomeDisciplina, String codigoDisciplina, Pessoa nomeProfessor){
+    protected Pessoa Professor;
+    protected float[] notas;
+    private int cargaHoraria, creditos = 0;
+    private static boolean status = false;
+    private static int cont = 0;
+    
+    // construtor
+    public Disciplina(String nomeDisciplina, String codigoDisciplina, Pessoa nomeProfessor, int creditos,
+    int cargaHoraria) {
         this.nomeDisciplina = nomeDisciplina;
         this.codigoDisciplina = codigoDisciplina;
-        this.nomeProfessor = nomeProfessor;
+        this.Professor = nomeProfessor;
+        this.cargaHoraria = cargaHoraria;
+        if(verificarCreditos())
+            this.creditos = creditos;
     }
-    
-    //getter's
+
+    // getter's
     public String getNomeDisciplina() {
         return nomeDisciplina;
     }
@@ -20,11 +28,11 @@ abstract class Disciplina {
         return codigoDisciplina;
     }
 
-    public Pessoa getNomeProfessor() {
-        return nomeProfessor;
+    public Pessoa getProfessor() {
+        return Professor;
     }
 
-    //setter's
+    // setter's
     public void setNomeDisciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
     }
@@ -33,7 +41,22 @@ abstract class Disciplina {
         this.codigoDisciplina = codigoDisciplina;
     }
 
-    public void setNomeProfessor(Pessoa nomeProfessor) {
-        this.nomeProfessor = nomeProfessor;
+    public void setProfessor(Pessoa nomeProfessor) {
+        this.Professor = nomeProfessor;
+    }
+
+    //Métodos
+    private boolean verificarCreditos() {
+        if (creditos > 0) return true;
+        else return false;
+    }
+
+    public void adicionaNota (float nota){
+        if(cont <= creditos) notas[cont++] = nota;
+    }
+
+    public String toString (){
+        return "Cod: " + codigoDisciplina + " Disciplina " + nomeDisciplina + " C/Horaria: " + cargaHoraria +
+        "Creditos: " + creditos + "\n" + "Docente: " + Professor.getNomeString();
     }
 }
