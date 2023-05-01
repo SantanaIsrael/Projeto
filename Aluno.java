@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import base.*;
 
 public class Aluno extends Pessoa{
@@ -20,5 +22,20 @@ public class Aluno extends Pessoa{
     //Setter's
     public int getMatricula (){
         return matricula;
+    }
+
+    private boolean validaDisciplina (Disciplina disc){
+        if(disc.getCredito() - this.creditosAcumulados > 0) return true;
+        else return false;
+    }
+
+    public void cadastrarDisciplina (Disciplina disc){
+        if(validaDisciplina(disc)) disciplinas[0] = disc;
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno [matricula=" + matricula + ", notas=" + Arrays.toString(notas) + ", creditosAcumulados="
+                + creditosAcumulados + ", disciplinas=" + Arrays.toString(disciplinas) + "]";
     }
 }

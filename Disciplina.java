@@ -4,7 +4,7 @@ abstract class Disciplina {
     protected String nomeDisciplina, codigoDisciplina;
     protected Pessoa Professor;
     protected float[] notas;
-    private int cargaHoraria, creditos = 0;
+    protected int cargaHoraria, creditos = 0;
     private static boolean status = false;
     private static int cont = 0;
     
@@ -30,6 +30,10 @@ abstract class Disciplina {
 
     public Pessoa getProfessor() {
         return Professor;
+    }
+
+    public int getCredito(){
+        return creditos;
     }
 
     // setter's
