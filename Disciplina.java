@@ -1,6 +1,6 @@
 import base.Pessoa;
 
-abstract class Disciplina {
+public class Disciplina {
     protected String nomeDisciplina, codigoDisciplina;
     protected Pessoa Professor;
     protected float[] notas;

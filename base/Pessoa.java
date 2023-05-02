@@ -2,22 +2,21 @@ package base;
 
 public class Pessoa{
     protected Data nascimentoData;
-    protected String nomeString, emailString, enderecoString;
-    protected double cpfInt;
+    protected String nomeString, emailString, enderecoString, cpfString;
 
     //Construtores
-    public Pessoa (String nome, String email, double cpf, String endereco,int dia, int mes, int ano){
+    public Pessoa (String nome, String email, String cpf, String endereco,int dia, int mes, int ano){
         nomeString = nome;
         emailString = email;
-        cpfInt = cpf;
+        cpfString = cpf;
         enderecoString = endereco;
         nascimentoData = new Data(dia, mes, ano);
     }
 
-    public Pessoa (String nome, String email, double cpf, Data data){
+    public Pessoa (String nome, String email, String cpf, Data data){
         nomeString =  nome;
         emailString = email;
-        cpfInt = cpf;
+        cpfString = cpf;
         nascimentoData = data;        
     }
 
@@ -46,17 +45,17 @@ public class Pessoa{
         this.emailString = emailString;
     }
 
-    public double getCpfInt() {
-        return cpfInt;
+    public String getCpfInt() {
+        return cpfString;
     }
 
-    public void setCpfInt(double cpfInt) {
-        this.cpfInt = cpfInt;
+    public void setCpfString(String cpfString) {
+        this.cpfString = cpfString;
     }
     
     @Override
     public String toString (){
-        return "Nome: " + nomeString + "\n" + "E-mail: " + emailString + "CPF: " + cpfInt + "\n"
+        return "Nome: " + nomeString + "\n" + "E-mail: " + emailString + "CPF: " + cpfString + "\n"
          + nascimentoData.infoDateExt();
     }
 }

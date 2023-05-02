@@ -7,9 +7,10 @@ public class Aluno extends Pessoa{
     protected float[] notas;
     protected int creditosAcumulados = 0;
     private Disciplina[] disciplinas;
+    private int qtdDisciplina = 0;
 
     //Construtores
-    public Aluno (String nome, String email, int cpf, int matricula, String endereco,int dia, int mes, int ano){
+    public Aluno (String nome, String email, String cpf, int matricula, String endereco,int dia, int mes, int ano){
         super(nome, email, cpf, endereco, dia, mes, ano);
         this.matricula = matricula;
     }
@@ -30,7 +31,7 @@ public class Aluno extends Pessoa{
     }
 
     public void cadastrarDisciplina (Disciplina disc){
-        if(validaDisciplina(disc)) disciplinas[0] = disc;
+        if(validaDisciplina(disc)) disciplinas[qtdDisciplina++] = disc;
     }
 
     @Override
