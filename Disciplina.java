@@ -15,7 +15,7 @@ public class Disciplina {
         this.codigoDisciplina = codigoDisciplina;
         this.Professor = nomeProfessor;
         this.cargaHoraria = cargaHoraria;
-        if(verificarCreditos())
+        if(verificarCreditos(creditos))
             this.creditos = creditos;
     }
 
@@ -50,7 +50,7 @@ public class Disciplina {
     }
 
     //Métodos
-    private boolean verificarCreditos() {
+    private boolean verificarCreditos(int creditos) {
         if (creditos > 0) return true;
         else return false;
     }
